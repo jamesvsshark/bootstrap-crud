@@ -1,0 +1,22 @@
+{
+  "name": "crud-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel src --out-dir dist && nodemon dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/node": "^7.0.0-beta.55",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.3"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
