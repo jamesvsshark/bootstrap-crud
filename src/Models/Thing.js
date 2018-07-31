@@ -1,4 +1,5 @@
 import Crud from '../lib/Crud';
+import { Schema } from 'mongoose';
 
 export default class Thing extends Crud {
 	constructor() {
@@ -7,7 +8,8 @@ export default class Thing extends Crud {
 			done: {
 				type: Boolean,
 				default: false
-			}
+			},
+			metadata: [Schema.Types.Mixed]
 		};
 
 		super(model, {

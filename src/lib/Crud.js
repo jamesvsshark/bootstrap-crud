@@ -9,12 +9,14 @@ export default class Crud {
 
 		// setup mongoose collection
 		console.info(`Setting up mongoose collection for ${options.routeName}...`);
-		const schema = new mongoose.Schema(model);
+		this.schema = new mongoose.Schema(model);
 
-		schema.post('save', doc => this.onSave(doc));
+		if(this.onSave) {
+			this.schema.post('save', doc => this.onSave(doc));
+		}
 
 		this.models.push({
-			[this.constructor.name]: mongoose.model(this.constructor.name, schema)
+			[this.constructor.name]: mongoose.model(this.constructor.name, this.schema)
 		});
 
 		if (seed && seedData.length > 0) {
