@@ -23,4 +23,8 @@ export default class Pet extends Crud {
 			}]
 		});
 	}
+
+	onSave(pet) {
+		console.info('Pet added: ', pet);
+	}
 }

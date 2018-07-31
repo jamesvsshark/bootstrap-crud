@@ -1,117 +1,20 @@
 import mongoose from 'mongoose';
-import Bootstrap from './bootstrap';
+import {routeBuilder} from './utils/routes';
 
 export default class Crud {
-	constructor(model, options, {
-		seed,
-		seedData
-	} = {}) {
-		const App = Bootstrap.app;
-
+	constructor(model, options, {seed,seedData} = {}) {
 		this.models = [];
 
-		// setup routes 
-		// todo move to util/routes
-		console.info(`Setting up routes for ${options.routeName}...`);
-
-		App.get(`/${options.routeName}/:id`, (req, res) => {
-			this.model.findById(req.params.id || req.query.id, (err, data) => {
-				if (err) {
-					return res.status(500).json({
-						error: err
-					});
-				}
-
-				if (!data) {
-					return res.status(404).json({
-						message: 'Resource not found'
-					});
-				}
-
-				return res.status(200).json({
-					data: data
-				});
-			});
-		});
-
-		App.get(`/${options.routeName}`, (req, res) => {
-			this.model.find({}, (err, data) => {
-				if (err) {
-					return res.status(500).json({
-						error: err
-					});
-				}
-
-				return res.status(200).json({
-					data: data
-				});
-			});
-		});
-
-		App.post(`/${options.routeName}`, (req, res) => {
-			if (req.body._id) {
-				delete req.body._id;
-			}
-
-			this.model.create(req.body, (err, data) => {
-				if (err) {
-					return res.status(500).json({
-						error: err
-					});
-				}
-
-				return res.status(201).json({
-					data: data
-				});
-			});
-		});
-
-		App.put(`/${options.routeName}/:id`, (req, res) => {
-			this.model.findByIdAndUpdate(req.params.id || req.query.id, req.body, {
-				new: true
-			}, (err, data) => {
-				if (err) {
-					return res.status(500).json({
-						error: err
-					});
-				}
-
-				if (!data) {
-					return res.status(404).json({
-						message: 'Resource not found'
-					});
-				}
-
-				return res.status(201).json({
-					data: data
-				});
-			});
-		});
-
-		App.delete(`/${options.routeName}/:id`, (req, res) => {
-			this.model.findByIdAndRemove(req.params.id || req.query.id, (err, data) => {
-				if (err) {
-					return res.status(500).json({
-						error: err
-					});
-				}
-
-				if (!data) {
-					return res.status(404).json({
-						message: 'Resource not found'
-					});
-				}
-
-				return res.status(200).json({
-					data: data
-				});
-			});
-		});
+		routeBuilder(options.routeName || `${this.constructor.name.toLowerCase()}s` , this);
 
 		// setup mongoose collection
 		console.info(`Setting up mongoose collection for ${options.routeName}...`);
+		const schema = new mongoose.Schema(model);
+
+		schema.post('save', doc => this.onSave(doc));
+
 		this.models.push({
-			[this.constructor.name]: mongoose.model(this.constructor.name, new mongoose.Schema(model))
+			[this.constructor.name]: mongoose.model(this.constructor.name, schema)
 		});
 
 		if (seed && seedData.length > 0) {
