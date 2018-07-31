@@ -3,7 +3,7 @@
 
 Takes a simple class and dynamically creates your Mongoose schema and routes.
 
-1. Bootstrap your app (see src/index.js)
+1. Bootstrap your app (see src/App.js)
 
 2. Extend the Crud class and pass in your options (see src/Pet.js)
 
