@@ -41,8 +41,8 @@ export default class Pet extends Crud {
 will make the following routes available:
 - localhost:3000/pets [GET]
 - localhost:3000/pets [POST]
-- localhost:3000/pets/:petId [GET]
-- localhost:3000/pets/:petId [PUT]
-- localhost:3000/pet/:petId [DELETE]
+- localhost:3000/pets/:id [GET]
+- localhost:3000/pets/:id [PUT]
+- localhost:3000/pets/:id [DELETE]
 
 More to follow soon!
