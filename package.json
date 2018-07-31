@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/App.js",
+    "lint": "./node_modules/.bin/eslint --fix src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,6 +17,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "body-parser": "^1.18.3",
+    "eslint": "^5.2.0",
     "nodemon": "^1.18.3"
   },
   "dependencies": {
