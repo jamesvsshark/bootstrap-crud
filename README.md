@@ -1,7 +1,7 @@
 
  # No more boiler plate CRUD for your express app!
 
-Takes a simple class and dynamically creates your Mongoose schema and routes.
+Takes a simple class and dynamically creates your Mongoose schema and HTTP verb api routes.
 
 1. Bootstrap your app (see src/App.js)
 
@@ -46,5 +46,3 @@ will make the following routes available:
 - localhost:3000/pet/:petId [DELETE]
 
 More to follow soon!
-- TS Support
-- Tests
