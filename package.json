@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel src --out-dir dist && nodemon dist/app.js",
+    "start": "nodemon --exec babel-node src/App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +14,7 @@
     "@babel/node": "^7.0.0-beta.55",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
     "nodemon": "^1.18.3"
   },
   "dependencies": {

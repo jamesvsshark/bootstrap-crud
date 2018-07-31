@@ -1,4 +1,4 @@
-import Bootstrap from './node_modules/bootstrap';
+import Bootstrap from './lib/bootstrap';
 import Pet from './Pet';
 
 class App {
@@ -9,6 +9,12 @@ class App {
     initialize() {
         Bootstrap.InitializeCrud().then(() => {
             const pet = new Pet();
+            // sample data
+            // pet.model.create({
+            //     name: "TED",
+            //     breed: "CAT",
+            //     age: 4
+            // })
         });
     }
 }

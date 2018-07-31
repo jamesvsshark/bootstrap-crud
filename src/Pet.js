@@ -1,4 +1,4 @@
-import Crud from './node_modules/Crud';
+import Crud from './lib/Crud';
 
 export default class Pet extends Crud {
     constructor() {
@@ -13,5 +13,4 @@ export default class Pet extends Crud {
             routePluralName: 'pets'
         });
     }
-
 }

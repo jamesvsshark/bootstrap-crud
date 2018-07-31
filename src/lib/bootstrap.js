@@ -17,14 +17,14 @@ export default class Bootstrap {
 
             mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
             mongoose.connection.once('open', () => {
-                console.info('Succesfully connected to MongoDB...');
+                console.info('Successfully connected to MongoDB...');
 
                 this.app.get('/', function (req, res) {
                     res.send('Welcome to a new world!')
                 });
 
                 this.app.listen(3000, () => {
-                    console.info('Bootstraped crud app listening on port 3000!');
+                    console.info('Bootstrapped crud app listening on port 3000!');
                     resolve();
                 });
             });
