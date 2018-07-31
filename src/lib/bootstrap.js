@@ -1,17 +1,20 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 
 export default class Bootstrap {
     constructor() {
         this.app;
     }
 
-    static InitializeCrud() {
+    static InitializeCrud(models, options) {
         return new Promise((resolve, reject) => {
             this.app = express();
 
+            this.app.use(bodyParser.json())
+
             // do orm settings
-            mongoose.connect('mongodb://localhost:27017/crud', {
+            mongoose.connect(options.mongoUri || 'mongodb://localhost:27017/crud', {
                 useNewUrlParser: true
             });
 
@@ -23,8 +26,9 @@ export default class Bootstrap {
                     res.send('Welcome to a new world!')
                 });
 
-                this.app.listen(3000, () => {
-                    console.info('Bootstrapped crud app listening on port 3000!');
+                this.app.listen(options.port || 3000, () => {
+                    models.forEach(m => new m());
+                    console.info(`Bootstrapped crud app listening on port ${options.port || 3000}!`);
                     resolve();
                 });
             });

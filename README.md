@@ -5,7 +5,7 @@ Takes a simple class and dynamically creates your Mongoose schema and routes.
 
 1. Bootstrap your app (see src/App.js)
 
-2. Extend the Crud class and pass in your options (see src/Pet.js)
+2. Extend the Crud class and pass in your options (see src/Models/Pet.js)
 
 The following code: 
 
@@ -32,7 +32,10 @@ export default class Pet extends Crud {
 will make the following routes available:
 - localhost:3000/pets [GET]
 - localhost:3000/pets [POST]
-- localhost:3000/pet/:petId [GET]
-- localhost:3000/pet/:petId [PUT]
+- localhost:3000/pets/:petId [GET]
+- localhost:3000/pets/:petId [PUT]
+- localhost:3000/pet/:petId [DELETE]
 
 More to follow soon!
+- TS Support
+- Tests

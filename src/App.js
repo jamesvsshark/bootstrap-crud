@@ -1,14 +1,15 @@
 import Bootstrap from './lib/bootstrap';
-import Pet from './Pet';
-
+import {Pet, Thing} from './Models';
 class App {
     constructor() {
         this.initialize();
     }
 
     initialize() {
-        Bootstrap.InitializeCrud().then(() => {
-            const pet = new Pet();
+        Bootstrap.InitializeCrud([Pet, Thing], {
+            port: 3000
+        }).then(() => {
+            // const pet = new Pet();
             // sample data
             // pet.model.create({
             //     name: "TED",
