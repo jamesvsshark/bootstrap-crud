@@ -29,6 +29,11 @@
     "mongoose": "^5.2.6"
   },
   "jest": {
-    "testURL": "http://localhost/"
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js}"
+    ],
+    "testURL": "http://localhost/",
+    "verbose": true
   }
 }
