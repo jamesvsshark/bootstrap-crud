@@ -52,6 +52,6 @@ will make the following routes available:
 - localhost:3000/pets/:id [PUT]
 - localhost:3000/pets/:id [DELETE]
 
-More to follow soon!
+More to follow soon! [What's been done?](CHANGELOG.md)
 
 What features would you like to see next? 
