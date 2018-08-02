@@ -22,7 +22,7 @@ export default class Bootstrap {
 			mongoose.connection.once('open', () => {
 				console.info('Successfully connected to MongoDB...');
 
-				this.app.get('/', function (req, res) {
+				this.app.get('/', function ({res}) {
 					res.send('Welcome to a new world!');
 				});
 

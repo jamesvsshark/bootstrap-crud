@@ -24,8 +24,12 @@ describe('Crud class', () => {
 			expect(routeBuilder).toHaveBeenCalled();
 		});
         
-		it('should have the instance of tests on the models array', () => {
+		it('should have an instance of the CRUD schema on the models array', () => {
 			expect(sut.models.length).toBe(1);
+		});
+
+		it('should return the CRUD model when the model getter is called', () => {
+			expect(sut.model.modelName).toBe('Crud');
 		});
 	});
 });
