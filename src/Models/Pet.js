@@ -25,6 +25,7 @@ export default class Pet extends Crud {
 	}
 
 	onSave(pet) {
+		// send a welcome email to pet
 		console.info('Pet added: ', pet);
 	}
 }
