@@ -15,3 +15,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - onSave hook that will fire when model is saved/created
 - Collections can now have a model as a reference from other documents and a dynamic populate function has been added to GET calls and PUT call
 - Additional unit tests 
+- Add TravisCI
