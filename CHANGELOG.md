@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Initial commit
-- Ability base functionality to create dynamic routes and mongoose collection from a simple class
+- Initial commit - source in src/lib dir
+- Base functionality to create dynamic routes and mongoose collection from a simple class
+- Examples in src dir
 - Readme with basic instructions
-- ESLINT 
+- eslint support 
 - Jest testing
 - onSave hook that will fire when model is saved/created
 - Collections can now have a model as a reference from other documents and a dynamic populate function has been added to GET calls and PUT call
