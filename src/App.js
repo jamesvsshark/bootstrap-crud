@@ -1,5 +1,5 @@
 import Bootstrap from './lib/bootstrap';
-import {Pet, Thing} from './Models';
+import {Pet, Thing, Person} from './Models';
 
 class App {
 	constructor() {
@@ -7,7 +7,7 @@ class App {
 	}
 
 	initialize() {
-		Bootstrap.InitializeCrud([Pet, Thing], {
+		Bootstrap.InitializeCrud([Pet, Thing, Person], {
 			port: 3000
 		}).then(() => {
 			// fire away!

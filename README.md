@@ -11,13 +11,15 @@ The following code:
 
 ```javascript
 import Crud from '../lib/Crud';
+import { Schema } from 'mongoose';
 
 export default class Pet extends Crud {
     constructor() {
         const model = {
             name: String,
             breed: String,
-            age: Number
+            age: Number,
+            owner: {type: Schema.Types.ObjectId, ref: 'Person'}
         };
 
         super(model, {

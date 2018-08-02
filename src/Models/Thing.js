@@ -5,7 +5,7 @@ export default class Thing extends Crud {
 	constructor() {
 		const model = {
 			title: String,
-			done: {
+			important: {
 				type: Boolean,
 				default: false
 			},

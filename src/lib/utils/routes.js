@@ -1,5 +1,18 @@
 import Bootstrap from '../bootstrap';
 
+export const getRefKeysFromSchema = function(SchemaObj) {
+	let refs = [];
+
+	Object.keys(SchemaObj).forEach(o => {
+		const field = SchemaObj[o];
+		if (typeof field === 'object' && 'ref' in field) {
+			refs.push(o);
+		}
+	});
+
+	return refs.join(' ');
+};
+
 export const routeBuilder = (routeName, context) => {
 	const App = Bootstrap.app;
 
@@ -16,7 +29,7 @@ export const routeBuilder = (routeName, context) => {
 			return res.status(200).json({
 				data: data
 			});
-		});
+		}).populate(getRefKeysFromSchema(context.model.schema.obj));
 	});
 
 	App.get(`/${routeName}`, (req, res) => {
@@ -30,7 +43,7 @@ export const routeBuilder = (routeName, context) => {
 			return res.status(200).json({
 				data: data
 			});
-		});
+		}).populate(getRefKeysFromSchema(context.model.schema.obj));
 	});
 
 	App.post(`/${routeName}`, (req, res) => {
@@ -74,7 +87,7 @@ export const routeBuilder = (routeName, context) => {
 			return res.status(201).json({
 				data: data
 			});
-		});
+		}).populate(getRefKeysFromSchema(context.model.schema.obj));
 	});
 
 	App.delete(`/${routeName}/:id`, (req, res) => {
