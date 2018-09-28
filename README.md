@@ -2,6 +2,8 @@
  # No more boiler plate CRUD for your express app!
  [![Build Status](https://travis-ci.org/jamesvsshark/bootstrap-crud.svg?branch=master)](https://travis-ci.org/jamesvsshark/bootstrap-crud)
 
+This project was bootstrapped with [jamesvsshark/bootstrap-crud](https://github.com/jamesvsshark/bootstrap-crud).
+
 Takes a simple class and dynamically creates your Mongoose schema and HTTP verb api routes.
 
 1. Bootstrap your app (see src/App.js)
